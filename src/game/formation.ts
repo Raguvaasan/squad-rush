@@ -1,4 +1,4 @@
-import { BALANCE } from './balance';
+import { BALANCE } from './balance.js';
 
 const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
 

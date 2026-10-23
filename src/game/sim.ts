@@ -1,9 +1,9 @@
-import { BALANCE } from './balance';
-import { generateChunk } from './chunks';
-import { squadRadius } from './formation';
-import { applyGate, gateLabel, isGoodGate } from './gates';
-import { createRng } from './rng';
-import type { Bullet, Enemy, GameEvent, GameState } from './types';
+import { BALANCE } from './balance.js';
+import { generateChunk } from './chunks.js';
+import { squadRadius } from './formation.js';
+import { applyGate, gateLabel, isGoodGate } from './gates.js';
+import { createRng } from './rng.js';
+import type { Bullet, Enemy, GameEvent, GameState } from './types.js';
 
 /** Fixed simulation step. Rendering runs at any frame rate; the game itself always advances in 1/60 s ticks. */
 export const TICK = 1 / 60;

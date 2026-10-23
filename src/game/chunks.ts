@@ -1,6 +1,6 @@
-import { BALANCE } from './balance';
-import { createRng, hashSeed, intRange, range, type Rng } from './rng';
-import type { EnemyKind, Gate, GateOp } from './types';
+import { BALANCE } from './balance.js';
+import { createRng, hashSeed, intRange, range, type Rng } from './rng.js';
+import type { EnemyKind, Gate, GateOp } from './types.js';
 
 export interface SpawnEnemy {
   kind: EnemyKind;

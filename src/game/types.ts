@@ -1,4 +1,4 @@
-import type { Rng } from './rng';
+import type { Rng } from './rng.js';
 
 export type EnemyKind = 'grunt' | 'brute' | 'boss' | 'crate';
 

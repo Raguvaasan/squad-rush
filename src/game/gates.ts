@@ -1,5 +1,5 @@
-import { BALANCE } from './balance';
-import type { Gate } from './types';
+import { BALANCE } from './balance.js';
+import type { Gate } from './types.js';
 
 function rawResult(squad: number, gate: Gate): number {
   switch (gate.op) {

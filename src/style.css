@@ -211,3 +211,143 @@ button:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 4px;
 }
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+button.secondary {
+  min-height: 44px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+button.secondary:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+button.link,
+button.link:active {
+  min-height: 0;
+  padding: 2px 4px;
+  font-size: inherit;
+  font-weight: 800;
+  background: none;
+  box-shadow: none;
+  transform: none;
+  text-decoration: underline dotted;
+  text-underline-offset: 4px;
+}
+
+.account {
+  display: grid;
+  gap: 10px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.reward {
+  color: var(--gold);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.error,
+.reward.error {
+  color: #ffb3b3;
+  font-size: 16px;
+}
+
+.error:empty {
+  display: none;
+}
+
+dialog {
+  width: min(32rem, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  /* The reset at the top zeroes margins, and auto margins are what centre a modal dialog. */
+  margin: auto;
+  padding: 20px 16px;
+  border: 0;
+  border-radius: 18px;
+  color: #fff;
+  background: #16223d;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+/* showModal() focuses the dialog itself; the buttons inside carry the visible focus ring. */
+dialog:focus-visible {
+  outline: none;
+}
+
+dialog::backdrop {
+  background: rgba(8, 14, 28, 0.6);
+}
+
+.dialog-body {
+  display: grid;
+  gap: 14px;
+}
+
+input {
+  min-width: 0;
+  padding: 10px 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 20px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.25);
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+input:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.board-list {
+  display: grid;
+  gap: 4px;
+  max-height: min(55vh, 520px);
+  overflow-y: auto;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.board-list li {
+  display: grid;
+  grid-template-columns: 3.5em minmax(0, 1fr) auto;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.board-list li.me {
+  background: rgba(47, 123, 255, 0.55);
+}
+
+.board-list span:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.board-list span:last-child {
+  font-variant-numeric: tabular-nums;
+}

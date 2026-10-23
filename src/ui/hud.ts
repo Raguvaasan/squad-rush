@@ -1,6 +1,7 @@
 import { score } from '../game/sim';
 import type { GameEvent, GameState } from '../game/types';
 import type { ScreenPoint } from '../render/scene';
+import { byId } from './dom';
 
 export interface RunResult {
   score: number;
@@ -9,12 +10,6 @@ export interface RunResult {
 }
 
 type ToastKind = 'good' | 'bad' | 'info';
-
-function byId<T extends HTMLElement = HTMLElement>(id: string): T {
-  const el = document.getElementById(id);
-  if (!el) throw new Error(`Missing #${id} in index.html`);
-  return el as T;
-}
 
 /** The DOM overlay: menus, score, boss bar, the squad counter and floating "+10" toasts. */
 export class Hud {
@@ -43,9 +38,13 @@ export class Hud {
   }
 
   showMenu(best: number): void {
-    this.bestEl.textContent = best.toLocaleString();
+    this.setBest(best);
     this.setScreen('menu');
     this.playButton.focus();
+  }
+
+  setBest(best: number): void {
+    this.bestEl.textContent = best.toLocaleString();
   }
 
   showPlaying(): void {
@@ -57,7 +56,7 @@ export class Hud {
     this.finalScore.textContent = result.score.toLocaleString();
     this.finalDist.textContent = `${result.distance.toLocaleString()} m`;
     this.finalKills.textContent = result.kills.toLocaleString();
-    this.bestEl.textContent = best.toLocaleString();
+    this.setBest(best);
     this.newBest.hidden = !isNewBest;
     this.setScreen('over');
     this.againButton.focus();

@@ -33,6 +33,9 @@ export const BALANCE = {
   /** Added, not multiplied: compounding crates would grow as fast as the enemies and runs would never end. */
   crateDamageStep: 0.25,
 
+  /** Coins the server awards per verified run: one per this many points. */
+  pointsPerCoin: 100,
+
   gate: {
     doubleChance: 0.08,
     /** Damage needed to raise a shootable (+/-) gate by one point, before the difficulty multiplier. */

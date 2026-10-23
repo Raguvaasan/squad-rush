@@ -29,6 +29,17 @@
       <p>Drag to steer. Pick the right gates. Shoot everything.</p>
       <button id="play" type="button">PLAY</button>
       <p class="best">Best: <span id="best">0</span></p>
+      <div class="account" data-online hidden>
+        <p>
+          <button id="name" class="link" type="button" title="Change your name"></button>
+          · <span id="coins">0</span> coins
+        </p>
+        <div class="actions">
+          <button class="secondary" type="button" data-board>Leaderboard</button>
+          <button id="google" class="secondary" type="button" hidden>Save progress with Google</button>
+        </div>
+        <p id="account-status" class="error" role="status"></p>
+      </div>
     </section>
 
     <section id="over" class="screen" hidden>
@@ -36,8 +47,38 @@
       <p class="final"><span id="final-score">0</span></p>
       <p><span id="final-dist">0 m</span> · <span id="final-kills">0</span> kills</p>
       <p id="new-best" class="new-best" hidden>New best!</p>
+      <p id="reward" class="reward" role="status" hidden></p>
       <button id="again" type="button">PLAY AGAIN</button>
+      <button class="secondary" type="button" data-board data-online hidden>Leaderboard</button>
     </section>
+
+    <dialog id="board" aria-labelledby="board-title">
+      <form method="dialog" class="dialog-body">
+        <h2 id="board-title">Leaderboard</h2>
+        <ol id="board-list" class="board-list"></ol>
+        <p id="board-status" role="status"></p>
+        <button type="submit">BACK</button>
+      </form>
+    </dialog>
+
+    <dialog id="name-dialog" aria-labelledby="name-title">
+      <form id="name-form" class="dialog-body">
+        <h2 id="name-title">Your name</h2>
+        <input
+          id="name-input"
+          aria-labelledby="name-title"
+          aria-describedby="name-error"
+          maxlength="16"
+          autocomplete="nickname"
+          spellcheck="false"
+        />
+        <p id="name-error" class="error" role="alert"></p>
+        <div class="actions">
+          <button id="name-cancel" class="secondary" type="button">Cancel</button>
+          <button id="name-save" type="submit">SAVE</button>
+        </div>
+      </form>
+    </dialog>
 
     <script type="module" src="/src/main.ts"></script>
   </body>
