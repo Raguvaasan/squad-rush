@@ -1,0 +1,213 @@
+:root {
+  --blue: #2f7bff;
+  --blue-dark: #133f99;
+  --red: #ff4d4d;
+  --gold: #ffe14d;
+  --sky: #9fd3ff;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--sky);
+}
+
+body {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#game {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+#hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  color: #fff;
+  font-weight: 800;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+.hud-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: max(12px, env(safe-area-inset-top)) 16px 0;
+}
+
+#score {
+  font-size: 32px;
+}
+
+#dist {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+#boss {
+  display: grid;
+  gap: 4px;
+  width: min(80vw, 420px);
+  margin: 10px auto 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.bar {
+  height: 12px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+#boss-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--red), #ffb84d);
+  transform-origin: left;
+}
+
+#squad-label {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 2px 10px;
+  border-radius: 8px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.toast {
+  position: fixed;
+  transform: translateX(-50%);
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+  animation: rise 0.9s ease-out forwards;
+}
+
+.toast.good {
+  color: #9cd0ff;
+}
+
+.toast.bad {
+  color: #ff8a8a;
+}
+
+.toast.info {
+  color: var(--gold);
+  font-size: 24px;
+}
+
+@keyframes rise {
+  to {
+    opacity: 0;
+    translate: 0 -70px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    animation-name: fade;
+  }
+
+  @keyframes fade {
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+.screen {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  /* A fixed-width column, so long lines wrap instead of widening the grid past the screen. */
+  grid-template-columns: minmax(0, 32rem);
+  place-content: center;
+  gap: 14px;
+  padding: 24px 16px;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(8, 14, 28, 0.2), rgba(8, 14, 28, 0.75));
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  font-size: clamp(36px, 10vw, 72px);
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 0 var(--blue-dark), 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.final {
+  font-size: 56px;
+  font-weight: 900;
+}
+
+.best {
+  opacity: 0.9;
+}
+
+.new-best {
+  color: var(--gold);
+  font-size: 22px;
+  font-weight: 900;
+}
+
+button {
+  justify-self: center;
+  min-height: 56px;
+  padding: 14px 48px;
+  border: 0;
+  border-radius: 14px;
+  font: inherit;
+  font-size: 24px;
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(180deg, #4d94ff, #1f5fe0);
+  box-shadow: 0 6px 0 var(--blue-dark);
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 var(--blue-dark);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}

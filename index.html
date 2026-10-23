@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#9fd3ff" />
+    <meta name="description" content="Endless squad runner: steer through gates, grow your army, beat the bosses." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪖</text></svg>" />
+    <title>Squad Rush</title>
+  </head>
+  <body>
+    <canvas id="game" aria-label="Game view. Drag left or right, or use the arrow keys, to steer the squad."></canvas>
+
+    <div id="hud" hidden>
+      <div class="hud-top">
+        <div id="score" aria-label="Score">0</div>
+        <div id="dist">0 m</div>
+      </div>
+      <div id="boss" hidden>
+        <span>BOSS</span>
+        <div class="bar"><div id="boss-fill"></div></div>
+      </div>
+    </div>
+    <div id="squad-label" hidden>10</div>
+    <div id="toasts" aria-hidden="true"></div>
+
+    <section id="menu" class="screen">
+      <h1>SQUAD RUSH</h1>
+      <p>Drag to steer. Pick the right gates. Shoot everything.</p>
+      <button id="play" type="button">PLAY</button>
+      <p class="best">Best: <span id="best">0</span></p>
+    </section>
+
+    <section id="over" class="screen" hidden>
+      <h2>Squad lost</h2>
+      <p class="final"><span id="final-score">0</span></p>
+      <p><span id="final-dist">0 m</span> · <span id="final-kills">0</span> kills</p>
+      <p id="new-best" class="new-best" hidden>New best!</p>
+      <button id="again" type="button">PLAY AGAIN</button>
+    </section>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
